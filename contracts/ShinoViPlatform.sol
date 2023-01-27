@@ -1,4 +1,5 @@
-// SPDX-License-Identifier: Unlicense
+// SPDX-License-Identifier: MIT
+// Author: Cormac Guerin
 pragma solidity ^0.8.4;
 
 import "./ShinoViNFTFactory.sol";
@@ -115,21 +116,6 @@ contract ShinoViPlatform is Initializable {
         shinoViMultiNFTFactory = IShinoViMultiNFTFactory(_multiNFTFactory);
 
     }
-
-    /*
-    constructor(address _nftFactory,
-                address _platformRecipientA,
-                uint256 _feeA,
-                address _platformRecipientB,
-                uint256 _feeB,
-                address _multiNFTFactory) {
-        shinoViAdmins[msg.sender] = true;
-        defaultFees = PlatformFee(_platformRecipientA,_feeA,_platformRecipientB,_feeB);
-        lazyMintFees = PlatformFee(_platformRecipientA,_feeA*3,_platformRecipientB,_feeB*3);
-        shinoViNFTFactory = IShinoViNFTFactory(_nftFactory);
-        shinoViMultiNFTFactory = IShinoViMultiNFTFactory(_multiNFTFactory);
-    }
-    */
 
     function createCollection(
         string memory _name,
@@ -306,7 +292,6 @@ contract ShinoViPlatform is Initializable {
             );
 
             // finally transfer NFT
-            //safeTransferFrom(t.nft, address(this), t.buyer, t.tokenId, t.amount);
             safeTransferFrom(t.nft, msg.sender, t.buyer, t.tokenId, t.amount);
 
         }

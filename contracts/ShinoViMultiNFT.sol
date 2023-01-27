@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+// Author: Cormac Guerin
 pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/access/Ownable.sol";

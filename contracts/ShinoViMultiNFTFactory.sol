@@ -8,10 +8,8 @@ contract ShinoViMultiNFTFactory {
     address owner;
     address platform;
 
-    //constructor(address _platform) {
     constructor() {
       owner = msg.sender;
-    //  platform = _platform;
     }
 
     function create(
@@ -24,8 +22,6 @@ contract ShinoViMultiNFTFactory {
       address _platformRecipientA,
       uint256 _platformFeeB,
       address _platformRecipientB) external returns (address) {
-
-        // require(platform == msg.sender, "access denied");
 
         ShinoViMultiNFT shinoViMultiNFT = new ShinoViMultiNFT(
           _name,
@@ -42,14 +38,6 @@ contract ShinoViMultiNFTFactory {
         return address(shinoViMultiNFT);
 
     }
-
-    /*
-    function setPlatform(address _address) external returns (bool) {
-      require(owner == msg.sender, "access denied");
-      platform = _address;
-      return true;
-    }
-    */
 
 }
 

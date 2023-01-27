@@ -1,4 +1,5 @@
-// SPDX-License-Identifier: Unlicense
+// SPDX-License-Identifier: MIT
+// Author: Cormac Guerin
 pragma solidity ^0.8.4;
 
 import "./ShinoViNFT.sol";
@@ -8,7 +9,6 @@ contract ShinoViNFTFactory {
     address platform;
     address owner;
 
-    //constructor(address _platform) {
     constructor() {
       owner = msg.sender;
     }
@@ -23,8 +23,6 @@ contract ShinoViNFTFactory {
       address _platformRecipientA,
       uint256 _platformFeeB,
       address _platformRecipientB) external returns (address) {
-
-      //  require(platform == msg.sender, "access denied");
 
         ShinoViNFT shinoViNFT = new ShinoViNFT(
           _name,
@@ -41,14 +39,6 @@ contract ShinoViNFTFactory {
         return address(shinoViNFT);
 
     }
-
-    /*
-    function setPlatform(address _address) external returns (bool) {
-      require(owner == msg.sender, "access denied");
-      platform = _address;
-      return true;
-    }
-    */
 
 }
 
